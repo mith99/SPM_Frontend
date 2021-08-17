@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
-//import Select from "react-select";
 import Select from "react-dropdown-select";
 import axios from "axios";
 import AddOfferCss from "../../styleSheets/addOffer.css";
@@ -36,22 +35,24 @@ class AddOffer extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/catergory/").then((response) => {
-      console.log(response);
-      this.setState({ catergories: response.data.data }, () => {
-        let data = [];
+    axios
+      .get("http://localhost:5000/category/getAllCategories")
+      .then((response) => {
+        console.log(response);
+        this.setState({ catergories: response.data.data }, () => {
+          let data = [];
 
-        this.state.catergories.map((item, index) => {
-          let catergory = {
-            value: item._id,
-            label: item.catergoryName,
-          };
-          data.push(catergory);
+          this.state.catergories.map((item, index) => {
+            let catergory = {
+              value: item._id,
+              label: item.categoryName,
+            };
+            data.push(catergory);
+          });
+
+          this.setState({ optionsCatergories: data });
         });
-
-        this.setState({ optionsCatergories: data });
       });
-    });
 
     axios.get("http://localhost:5000/meal/").then((response) => {
       console.log(response);
