@@ -19,73 +19,59 @@ class EditOffer extends Component {
       selectedFile:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC4RszYZwlndjEI41DS3tay-AFYmGK2s8cEaGYRffLzFwYnOk4psE3eAYLiUrsUw4_Q8&usqp=CAU",
 
-      catergories: [],
-      optionsCatergories: [],
-      selectedCatergories: "",
+      catergories: "",
 
-      meals: [],
-      optionsMeals: [],
-      selectedMeals: "",
+      meals: "",
     };
-
-    this.onCatergorySelect = this.onCatergorySelect.bind(this);
-    this.onMealSelect = this.onMealSelect.bind(this);
-    this.setSelectImageFile = this.setSelectImageFile.bind(this);
-    this.onChange = this.onChange.bind(this);
-    //this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
+    console.log(this.props.match.params.id);
     axios
-      .get("http://localhost:5000/category/getAllCategories")
+      .get(
+        `http://localhost:5000/offer/getOfferById/${this.props.match.params.id}`
+      )
       .then((response) => {
-        console.log(response);
-        this.setState({ catergories: response.data.data }, () => {
-          let data = [];
-
-          this.state.catergories.map((item, index) => {
-            let catergory = {
-              value: item._id,
-              label: item.categoryName,
-            };
-            data.push(catergory);
-          });
-
-          this.setState({ optionsCatergories: data });
+        console.log(response.data);
+        this.setState({
+          offerName: response.data.data.offerName,
+          description: response.data.data.description,
+          discountPercentage: response.data.data.discount,
+          newPrice: response.data.data.price,
+          startDate: response.data.data.startDate,
+          endDate: response.data.data.endDate,
+          selectedFile: response.data.data.image,
         });
+      })
+      .catch((error) => {
+        alert(error.message);
       });
 
-    axios.get("http://localhost:5000/meal/").then((response) => {
-      console.log(response);
-      this.setState({ meals: response.data.data }, () => {
-        let data = [];
+    axios
+      .get(
+        `http://localhost:5000/offer/getMealForOffer/${this.props.match.params.id}`
+      )
+      .then((response) => {
+        console.log("Meals:", response.data.meals.mealName);
 
-        this.state.meals.map((item, index) => {
-          let meal = {
-            value: item._id,
-            label: item.mealName,
-          };
-          data.push(meal);
-        });
-
-        this.setState({ optionsMeals: data });
+        this.setState({ meals: response.data.meals.mealName });
+      })
+      .catch((error) => {
+        alert(error.message);
       });
-    });
-  }
 
-  onCatergorySelect(e) {
-    this.setState({
-      selectedCatergories: e.map((item) => item.value),
-    });
-    console.log(this.state.selectedCatergories);
-  }
+    axios
+      .get(
+        `http://localhost:5000/offer/getCatergoryForOffer/${this.props.match.params.id}`
+      )
+      .then((response) => {
+        console.log("Catergory:", response.data.catergories.categoryName);
 
-  onMealSelect(e) {
-    this.setState({
-      selectedMeals: e.map((item) => item.value),
-    });
-    const meal = this.state.selectedMeals;
-    console.log(meal);
+        this.setState({ catergories: response.data.catergories.categoryName });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
 
   setSelectImageFile = (file) =>
@@ -186,21 +172,19 @@ class EditOffer extends Component {
                   required
                 ></input>
                 <p className="fontPara">Catergory</p>
-                <div className="col-md-9">
-                  <Select
-                    options={this.state.optionsCatergories}
-                    onChange={this.onCatergorySelect}
-                    className="inputTextBox"
-                  />
-                </div>
+                <input
+                  className="inputTextBox"
+                  value={this.state.catergories}
+                  disabled
+                ></input>
+
                 <p className="fontPara">Meal</p>
-                <div className="col-md-9">
-                  <Select
-                    options={this.state.optionsMeals}
-                    onChange={this.onMealSelect}
-                    className="inputTextBox"
-                  />
-                </div>
+
+                <input
+                  className="inputTextBox"
+                  value={this.state.meals}
+                  disabled
+                ></input>
                 <p className="fontPara">Description</p>
                 <input
                   className="inputTextBox"
