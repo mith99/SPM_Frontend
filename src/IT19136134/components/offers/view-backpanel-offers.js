@@ -84,7 +84,7 @@ class ViewOffersBackPanel extends Component {
                               </Col>
                               <Col sm="3">
                                 <button
-                                  className=" addButton"
+                                  className="deleteButton"
                                   onClick={(e) =>
                                     this.navigateToEditDeletePage(e, item._id)
                                   }

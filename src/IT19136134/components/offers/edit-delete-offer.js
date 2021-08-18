@@ -23,6 +23,11 @@ class EditOffer extends Component {
 
       meals: "",
     };
+
+    this.setSelectImageFile = this.setSelectImageFile.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.onEdit = this.onEdit.bind(this);
   }
 
   componentDidMount() {
@@ -93,30 +98,58 @@ class EditOffer extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  // onSubmit(e) {
-  //   e.preventDefault();
-  //   let offer = {
-  //     offerName: this.state.offerName,
-  //     catergories: this.state.selectedCatergories,
-  //     meals: this.state.selectedMeals,
-  //     description: this.state.description,
-  //     discount: this.state.discountPercentage,
-  //     price: this.state.newPrice,
-  //     startDate: this.state.startDate,
-  //     endDate: this.state.endDate,
-  //     image: this.state.selectedFile,
-  //   };
-  //   console.log("Offer Details", offer);
-  //   axios
-  //     .post("http://localhost:8080/offer/create", offer)
-  //     .then((response) => {
-  //       alert("Data inserted successfully");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //       alert(error.message);
-  //     });
-  // }
+  onDelete(e) {
+    axios
+      .delete(
+        `http://localhost:5000/offer/deleteoffer/${this.props.match.params.id}`
+      )
+      .then((response) => {
+        alert("Data Successfully Deleted.");
+        this.setState({
+          offerName: "",
+          description: "",
+          discountPercentage: "",
+          newPrice: "",
+          startDate: new Date(),
+          endDate: new Date(),
+          selectedFile:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC4RszYZwlndjEI41DS3tay-AFYmGK2s8cEaGYRffLzFwYnOk4psE3eAYLiUrsUw4_Q8&usqp=CAU",
+
+          selectedCatergories: "",
+          selectedMeals: "",
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+        alert(error.message);
+      });
+  }
+
+  onEdit(e) {
+    e.preventDefault();
+    let offer = {
+      offerName: this.state.offerName,
+      description: this.state.description,
+      discount: this.state.discountPercentage,
+      price: this.state.newPrice,
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      image: this.state.selectedFile,
+    };
+    console.log("Offer Details", offer);
+    axios
+      .put(
+        `http://localhost:5000/offer/updateoffer/${this.props.match.params.id}`,
+        offer
+      )
+      .then((response) => {
+        alert("Data updated successfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        alert(error.message);
+      });
+  }
 
   render() {
     return (
@@ -212,8 +245,12 @@ class EditOffer extends Component {
                 <br />
                 <br />
                 <row className="d-flex justify-content-between">
-                  <button className="editDeleteButton">Delete</button>
-                  <button className="editDeleteButton">Edit</button>
+                  <button className="editDeleteButton" onClick={this.onDelete}>
+                    Delete
+                  </button>
+                  <button className="editDeleteButton" onClick={this.onEdit}>
+                    Edit
+                  </button>
                 </row>
               </Col>
             </Row>

@@ -124,6 +124,19 @@ class AddOffer extends Component {
       .post("http://localhost:5000/offer/create", offer)
       .then((response) => {
         alert("Data inserted successfully");
+        this.setState({
+          offerName: "",
+          description: "",
+          discountPercentage: "",
+          newPrice: "",
+          startDate: new Date(),
+          endDate: new Date(),
+          selectedFile:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC4RszYZwlndjEI41DS3tay-AFYmGK2s8cEaGYRffLzFwYnOk4psE3eAYLiUrsUw4_Q8&usqp=CAU",
+
+          selectedCatergories: "",
+          selectedMeals: "",
+        });
       })
       .catch((error) => {
         console.log(error.message);
@@ -137,100 +150,108 @@ class AddOffer extends Component {
         <Row>
           <Col sm="2"></Col>
           <Col sm="10">
-            <Row className="backgroundRowImage">
-              <Col sm="6">
-                <h1 className="topic">Add Offer</h1>
-                <p className="fontPara">Upload Image</p>
-                <img
-                  src={this.state.selectedFile}
-                  alt="item image"
-                  className="imageBox"
-                />
-                <br />
-                <br />
-                <input
-                  className="inputTextBox"
-                  type="file"
-                  accept="image/*"
-                  onChange={this.setSelectImageFile}
-                  required
-                ></input>
-                <br></br>
-                <p className="fontPara">Start Date</p>
-                <input
-                  className="inputTextBox"
-                  type="date"
-                  name="startDate"
-                  value={this.state.startDate}
-                  onChange={this.onChange}
-                  required
-                ></input>
-                <p className="fontPara">End Date</p>
-                <input
-                  className="inputTextBox"
-                  type="date"
-                  name="endDate"
-                  value={this.state.endDate}
-                  onChange={this.onChange}
-                  required
-                ></input>
-              </Col>
-              <Col sm="6" className="spaceTop">
-                <p className="fontPara">Offer Name</p>
-                <input
-                  className="inputTextBox"
-                  name="offerName"
-                  value={this.state.offerName}
-                  onChange={this.onChange}
-                  required
-                ></input>
-                <p className="fontPara">Catergory</p>
-                <div className="col-md-9">
-                  <Select
-                    options={this.state.optionsCatergories}
-                    onChange={this.onCatergorySelect}
-                    className="inputTextBox"
+            <form>
+              <Row className="backgroundRowImage">
+                <Col sm="6">
+                  <h1 className="topic">Add Offer</h1>
+                  <p className="fontPara">Upload Image</p>
+                  <img
+                    src={this.state.selectedFile}
+                    alt="item image"
+                    className="imageBox"
                   />
-                </div>
-                <p className="fontPara">Meal</p>
-                <div className="col-md-9">
-                  <Select
-                    options={this.state.optionsMeals}
-                    onChange={this.onMealSelect}
+                  <br />
+                  <br />
+                  <input
                     className="inputTextBox"
-                  />
-                </div>
-                <p className="fontPara">Description</p>
-                <input
-                  className="inputTextBox"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.onChange}
-                  required
-                ></input>
-                <p className="fontPara">Discount Percentage</p>
-                <input
-                  className="inputTextBox"
-                  name="discountPercentage"
-                  value={this.state.discountPercentage}
-                  onChange={this.onChange}
-                  required
-                ></input>
-                <p className="fontPara">New Price</p>
-                <input
-                  className="inputTextBox"
-                  name="newPrice"
-                  value={this.state.newPrice}
-                  onChange={this.onChange}
-                  required
-                ></input>
-                <br />
-                <br />
-                <button className="addButton" onClick={this.onSubmit}>
-                  Add
-                </button>
-              </Col>
-            </Row>
+                    type="file"
+                    accept="image/*"
+                    onChange={this.setSelectImageFile}
+                    required
+                  ></input>
+                  <br></br>
+                  <p className="fontPara">Start Date</p>
+                  <input
+                    className="inputTextBox"
+                    type="date"
+                    name="startDate"
+                    value={this.state.startDate}
+                    onChange={this.onChange}
+                    required
+                  ></input>
+                  <p className="fontPara">End Date</p>
+                  <input
+                    className="inputTextBox"
+                    type="date"
+                    name="endDate"
+                    value={this.state.endDate}
+                    onChange={this.onChange}
+                    required
+                  ></input>
+                </Col>
+                <Col sm="6" className="spaceTop">
+                  <p className="fontPara">Offer Name</p>
+                  <input
+                    className="inputTextBox"
+                    name="offerName"
+                    value={this.state.offerName}
+                    onChange={this.onChange}
+                    required
+                  ></input>
+                  <p className="fontPara">Catergory</p>
+                  <div className="col-md-9">
+                    <Select
+                      options={this.state.optionsCatergories}
+                      onChange={this.onCatergorySelect}
+                      className="inputTextBox"
+                      required
+                    />
+                  </div>
+                  <p className="fontPara">Meal</p>
+                  <div className="col-md-9">
+                    <Select
+                      options={this.state.optionsMeals}
+                      onChange={this.onMealSelect}
+                      className="inputTextBox"
+                      required
+                    />
+                  </div>
+                  <p className="fontPara">Description</p>
+                  <input
+                    className="inputTextBox"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.onChange}
+                    required
+                  ></input>
+                  <p className="fontPara">Discount Percentage</p>
+                  <input
+                    className="inputTextBox"
+                    name="discountPercentage"
+                    value={this.state.discountPercentage}
+                    onChange={this.onChange}
+                    required
+                  ></input>
+                  <p className="fontPara">New Price</p>
+                  <input
+                    className="inputTextBox"
+                    name="newPrice"
+                    value={this.state.newPrice}
+                    onChange={this.onChange}
+                    required
+                  ></input>
+                  <br />
+                  <br />
+                  <Button
+                    type="res"
+                    className="addButton"
+                    onClick={this.onSubmit}
+                  >
+                    Add
+                  </Button>
+                </Col>
+              </Row>
+            </form>
           </Col>
         </Row>
       </div>
