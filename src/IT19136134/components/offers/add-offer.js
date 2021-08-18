@@ -242,13 +242,13 @@ class AddOffer extends Component {
                   ></input>
                   <br />
                   <br />
-                  <Button
+                  <button
                     type="res"
                     className="addButton"
                     onClick={this.onSubmit}
                   >
                     Add
-                  </Button>
+                  </button>
                 </Col>
               </Row>
             </form>
