@@ -26,10 +26,10 @@ class ViewOffersBackPanel extends Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col sm="2"></Col>
-          <Col sm="10">
-            <Row className="backgroundRowImageOffer">
+        <Row className="backgroundRowImageOffer">
+          <Col sm="3"></Col>
+          <Col sm="9">
+            <Row>
               <div className="container">
                 <h1 className="topicviewOffer">View Offers</h1>
                 {this.state.offers.length > 0 &&

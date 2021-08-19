@@ -147,11 +147,11 @@ class AddOffer extends Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col sm="2"></Col>
-          <Col sm="10">
+        <Row className="backgroundRowImage">
+          <Col sm="3"></Col>
+          <Col sm="9">
             <form>
-              <Row className="backgroundRowImage">
+              <Row>
                 <Col sm="6">
                   <h1 className="topic">Add Offer</h1>
                   <p className="fontPara">Upload Image</p>

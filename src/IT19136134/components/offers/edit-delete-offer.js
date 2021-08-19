@@ -154,10 +154,10 @@ class EditOffer extends Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col sm="2"></Col>
-          <Col sm="10">
-            <Row className="backgroundRowImage">
+        <Row className="backgroundRowImage">
+          <Col sm="3"></Col>
+          <Col sm="9">
+            <Row>
               <Col sm="6">
                 <h1 className="topic">Edit Offer</h1>
                 <p className="fontPara">Upload Image</p>

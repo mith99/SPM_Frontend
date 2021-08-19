@@ -7,10 +7,10 @@ class DashBoard extends Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col sm="2"></Col>
-          <Col sm="10">
-            <Row className="backgroundImageDashBoard">
+        <Row className="backgroundImageDashBoard">
+          <Col sm="3"></Col>
+          <Col sm="9">
+            <Row>
               <Row>
                 <div
                   style={{
