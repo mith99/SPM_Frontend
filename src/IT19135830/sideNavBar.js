@@ -88,7 +88,7 @@ const Header = () => {
                <br/>
                <SubMenu title="Today's Specials" icon={<AiOutlineStar/>}  className='titleBackgound'>
                 <MenuItem className='menuItemFont'><a href='/add-todays-special' style={{color:'black'}}>Add Today's Specials </a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Today's Specials </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/view-todays-special' style={{color:'black'}}>View Today's Specials </a></MenuItem>
                </SubMenu>
                <br/>
                <MenuItem icon={<HiDocumentReport />} className='titleBackgound'>
@@ -104,5 +104,6 @@ const Header = () => {
     
   );
 };
+
 
 export default Header;

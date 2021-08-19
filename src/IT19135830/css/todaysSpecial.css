@@ -8,6 +8,7 @@
      margin-left: 0px;
     margin-right: 0vh;
 
+
   background-size: cover;
   padding-right:100%;
 }
@@ -42,11 +43,12 @@
 }
 
 .inputTitles{
-    position: absolute;
     width: 183px;
     height: 45px;
     left: 320px;
     top: 178px;
+    margin-left: 400px;
+    margin-top: 2vh;
     
     font-family: Merriweather;
     font-style: italic;
@@ -56,4 +58,72 @@
     
     color: #FFFFFF;
     outline: #000000;
+    background-color: #1a1a1a;
+    opacity: 80%;
+}
+
+.topic {
+    margin-top: 20pt;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+}
+
+.fontPara {
+    font-family: Merriweather;
+    font-style: italic;
+    font-size: 15pt;
+    color: white;
+}
+
+.inputTextBox {
+    width: 600px;
+    height: 40px;
+    background: #EFEFEF;
+    border-radius: 20px;
+    margin-left: 400px;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+.spaceTop {
+    margin-top: 20pt;
+}
+
+.addButton {
+    width: 150px;
+    height: 70px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 30pt;
+    margin-top: 0%;
+    margin-left: 1350px;
+
+}
+
+.imageBox {
+    width: 400px;
+    height: 330px;
+    margin-left: 1200px;
+    margin-top: -70vh;
+    padding-top: 1vh;
+    border: 5px white;
+}
+
+.editDeleteButton {
+    width: 140px;
+    height: 40px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin-right: 100pt;
 }
