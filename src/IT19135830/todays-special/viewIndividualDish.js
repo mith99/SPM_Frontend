@@ -126,7 +126,7 @@ class viewIndividualDish extends Component {
 
 
                                                             {/*Modal to confirm deletedish*/}
-                                                            {/*<Card style={{alignSelf:'center', marginTop:'5vh'}}>*/}
+
                                                                 <Modal isOpen={this.state.closeModal} style={{alignSelf:'center', marginTop:'5vh'}}>
                                                                     <div style={{paddingLeft:'3vh', paddingRight:'3vh', paddingBottom:'2vh',paddingTop:'1vh'}}>
                                                                         <Row>
@@ -163,7 +163,7 @@ class viewIndividualDish extends Component {
                                                                         </div>
                                                                     </div>
                                                                 </Modal>
-                                                            {/*</Card>*/}
+
 
                                                         </Col>
                                                     </Row>

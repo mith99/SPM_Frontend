@@ -27,7 +27,28 @@
 
     color: #000000;
 
-    background-color: rgba(248, 247, 247, 0.4);
+    background-color: rgba(248, 247, 247, 0.5);
+    width:80vh;
+    border-radius:2vh;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dishNameStyle{
+    height: 8vh;
+    text-align: center;
+    margin-top: 5vh;
+    /* margin-left:50% ; */
+    /* padding-left:50px ; */
+
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 10vh;
+    line-height: 8vh;
+
+    color: #000000;
+
+    background-color: rgba(161, 161, 161, 0.8);
     width:80vh;
     border-radius:2vh;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

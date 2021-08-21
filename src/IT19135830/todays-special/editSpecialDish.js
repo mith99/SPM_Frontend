@@ -6,8 +6,10 @@ import axios from "axios";
 class EditSpecialDish extends Component {
     constructor(props) {
         super(props);
-        this.onChange = this.onChange.bind(this)
+        this.onChange = this.onChange.bind(this);
+        this.edit = this.edit.bind(this);
         this.state = {
+            dishName: "",
             description: "",
             price:0,
             date: new Date(),
@@ -20,14 +22,45 @@ class EditSpecialDish extends Component {
     componentDidMount() {
         axios.get(`http://localhost:5000/user/view-individual-todays-special/${this.props.match.params.id}`)
             .then((response) => {
-                this.setState({dish: response.data.data});
-                console.log("dish", this.state.dish);
-                console.log('state', this.state.closeModal)
+                this.setState({
+                    dishName: response.data.data.dishName,
+                    description:response.data.data.description,
+                    price:response.data.data.price,
+                    date:response.data.data.date,
+                    selectedFile:response.data.data.image
+
+                });
+
+                console.log(this.state.description)
             });
     }
 
     onChange(e){
         this.setState({[e.target.name]:e.target.value})
+    }
+
+    edit(e){
+         e.preventDefault();
+        let todaySpecial = {
+            dishName: this.state.dishName,
+            description: this.state.description,
+            price: this.state.price,
+            date: this.state.date,
+            image: this.state.selectedFile
+        }
+
+        console.log(todaySpecial);
+
+        axios.patch(`http://localhost:5000/user/edit-todays-special/${this.props.match.params.id}`, todaySpecial)
+            .then(response => {
+                alert('Data Successfully inserted');
+                window.location=('/view-todays-special');
+            })
+            .catch(error => {
+                console.log(error.message);
+                alert(error.message);
+            })
+
     }
 
     setSelectImageFile = (file) =>
@@ -54,7 +87,7 @@ class EditSpecialDish extends Component {
                         <Row >
                             <Col sm="6" style={{marginLeft:'300px'}}>
                                 <div>
-                                    <h1 className='titleStyle' style={{opacity:'100%'}}>Today's Special</h1>
+                                    <h1 className='titleStyle' style={{opacity:'100%', width:'850px'}}>Edit Today's Special</h1>
                                 </div>
                             </Col>
                         </Row>
@@ -68,18 +101,10 @@ class EditSpecialDish extends Component {
                                 <Col sm = '6' >
                                     <Row >
                                         <Col sm='2'></Col>
-                                        <Col sm='10'>
-                                            <h3 className='inputTitles'style={{marginBottom:'-15px'}}>
-                                                Dish Name
-                                            </h3>
-                                            <br/>
-                                            <input
-                                                className="inputTextBox"
-                                                name="dishName"
-                                                value={this.state.dishName}
-                                                onChange={this.onChange}
-                                                required
-                                            ></input>
+                                        <Col sm="6" style={{marginLeft:'400px'}}>
+                                            <div>
+                                                <h3 className='dishNameStyle' style={{ width:'400px',fontSize:'50px'}}>{this.state.dishName}</h3>
+                                            </div>
                                         </Col>
 
 
@@ -173,9 +198,9 @@ class EditSpecialDish extends Component {
 
                                     <button
                                         type="submit"
-                                        className="addButton"
-                                        onClick={this.onSubmit}
-                                    > Add </button>
+                                        className="addButton btn btn-info"
+                                        onClick={this.edit}
+                                    > Edit </button>
                                 </Col>
 
 
