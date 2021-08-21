@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Col, Row, Modal, Card, Button} from "reactstrap";
-import '../css/viewSpecials.css'
+import '../../css/viewSpecials.css'
 import axios from "axios";
 
 

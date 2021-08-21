@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './IT19135830/sideNavBar';
 import logo from './IT19135830/images/logo.png';
-import AddTodaysSpecial from './IT19135830/todays-special/addTodaysSpecial'
-import ViewSpecials from './IT19135830/todays-special/viewSpecials';
-import IndividualDish from './IT19135830/todays-special/viewIndividualDish';
-import EditDish from './IT19135830/todays-special/editSpecialDish';
+import AddTodaysSpecial from './IT19135830/components/todays-special/addTodaysSpecial'
+import ViewSpecials from './IT19135830/components/todays-special/viewSpecials';
+import IndividualDish from './IT19135830/components/todays-special/viewIndividualDish';
+import EditDish from './IT19135830/components/todays-special/editSpecialDish';
 
 
 function App() {
