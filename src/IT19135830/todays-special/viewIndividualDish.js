@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Col, Row } from "reactstrap";
+import {Col, Row, Modal, Card, Button} from "reactstrap";
 import '../css/viewSpecials.css'
 import axios from "axios";
 
@@ -7,9 +7,11 @@ import axios from "axios";
 class viewIndividualDish extends Component {
     constructor(props) {
         super(props);
-
+        this.deleteDish = this.deleteDish.bind(this);
+        this.editDish = this.editDish.bind(this);
         this.state = {
-            dish:[]
+            dish:[],
+            closeModal:''
         };
     }
 
@@ -17,20 +19,37 @@ class viewIndividualDish extends Component {
         axios.get(`http://localhost:5000/user/view-individual-todays-special/${this.props.match.params.id}`)
             .then((response) => {
                 this.setState({dish: response.data.data});
-                console.log("dish", this.state.dish)
+                console.log("dish", this.state.dish);
+                console.log('state', this.state.closeModal)
             });
     }
 
-    viewIndividualDish(e, id){
-        window.location=(`/view-dish/${id}`);
+    deleteDish(e){
+        axios
+            .delete(
+                `http://localhost:5000/user/delete-todays-special/${this.props.match.params.id}`
+            )
+            .then((response) => {
+                alert("Data Successfully Deleted.");
+                window.location=('/view-todays-special');
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(error.message);
+            });
     }
+
+    editDish(e, id){
+        window.location=(`/edit-dish/${id}`);
+    }
+
 
     render() {
         return (
             <div>
                 <Row className="backgroundRowImageOffer">
                     <Col sm="2"></Col>
-                    <Col sm="9">
+                    <Col sm="8">
                         <Row>
 
                             <h1 className='titleStyle' style={{opacity:'100%'}}>Today's Special</h1>
@@ -42,7 +61,7 @@ class viewIndividualDish extends Component {
                                         <div
                                             className="card-body"
                                         >
-                                            <Row style={{paddingTop:'2vh', paddingLeft:'3vh', height:'500px'}}>
+                                            <Row style={{paddingTop:'2vh', paddingLeft:'3vh', height:'400px'}}>
 
                                                 <Col sm="3">
                                                     <img
@@ -53,11 +72,12 @@ class viewIndividualDish extends Component {
                                                 </Col>
                                                 <Col sm="9">
                                                     <Row>
-                                                        <Col sm="5">
+                                                        <Col sm='1'></Col>
+                                                        <Col sm="8">
                                                             <h2 className="dishNameInd">
                                                                 {this.state.dish.dishName}
                                                             </h2>
-                                                            <br />                                                            <br />
+                                                            <br /><br />
 
                                                             <h6 className="dishDetails">
                                                                 Description - {this.state.dish.description}
@@ -76,23 +96,81 @@ class viewIndividualDish extends Component {
                                                             </p>
                                                         </Col>
 
-
-                                                        <Col sm="3">
+                                                    </Row>
+                                                    <Row>
+                                                        <Col sm="6"></Col>
+                                                        <Col sm="2">
+                                                            <br/>
                                                             <button
-                                                                className="deleteButton"
-                                                                // onClick={(e) =>
-                                                                //     // this.navigateToEditDeletePage(e, item._id)
-                                                                // }
+                                                                className="btn btn-info"
+                                                                onClick={(e) =>
+                                                                    this.editDish(e, this.state.dish._id)
+                                                                }
+                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+
                                                             >
-                                                                Edit/Delete
+                                                                Edit
                                                             </button>
+                                                        </Col>
+                                                        <Col sm="2">
+                                                            <br/>
+                                                            <button
+                                                                className=" btn btn-danger"
+                                                                onClick={(e) =>
+                                                                    this.setState({closeModal:true})
+                                                                }
+                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+                                                            >
+                                                                Delete
+                                                            </button>
+
+
+                                                            {/*Modal to confirm deletedish*/}
+                                                            {/*<Card style={{alignSelf:'center', marginTop:'5vh'}}>*/}
+                                                                <Modal isOpen={this.state.closeModal} style={{alignSelf:'center', marginTop:'5vh'}}>
+                                                                    <div style={{paddingLeft:'3vh', paddingRight:'3vh', paddingBottom:'2vh',paddingTop:'1vh'}}>
+                                                                        <Row>
+                                                                            <Col md='12'>
+                                                                                <h5 style={{textAlign:'center',paddingTop:'1vh', paddingBottom:'-1vh'}}>
+                                                                                    Are you sure to remove this User ?
+                                                                                </h5>
+                                                                                <br/>
+                                                                            </Col>
+                                                                        </Row>
+
+                                                                        <div className=" px-5 d-flex  justify-content-between " style={{paddingBottom:'1vh',paddingTop:'1vh'}}>
+                                                                            <Button
+                                                                                className="ml-1"
+                                                                                color="danger"
+                                                                                onClick={(e) =>
+                                                                                    this.deleteDish(e, this.state.dish._id)
+                                                                                }
+                                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+                                                                            >
+                                                                                Delete
+                                                                            </Button>
+
+                                                                            <Button
+                                                                                className="ml-1"
+                                                                                color="danger"
+                                                                                outline
+                                                                                onClick={() => this.setState({closeModal:false})}
+                                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+
+                                                                            >
+                                                                                Cancel
+                                                                            </Button>
+                                                                        </div>
+                                                                    </div>
+                                                                </Modal>
+                                                            {/*</Card>*/}
+
                                                         </Col>
                                                     </Row>
                                                 </Col>
                                             </Row>
                                         </div>
                                     </div>
-                                ))}
                             </div>
                         </Row>
                     </Col>

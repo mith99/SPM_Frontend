@@ -89,6 +89,7 @@ class viewSpecials extends Component {
                                                                 onClick={(e) =>
                                                                     this.viewIndividualDish(e, item._id)
                                                                 }
+
                                                             >
                                                                 Edit/Delete
                                                             </button>

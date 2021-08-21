@@ -75,7 +75,7 @@
     /*font-weight: bold;*/
     color: black;
     font-size: 60px;
-    width: 376px;
+    /*width: 500px;*/
     height: 43px;
 }
 
@@ -118,7 +118,7 @@
     color: red;
 }
 
-.deleteButton {
+.editBtn {
     width: 140px;
     height: 40px;
     background: #47AAE2;
@@ -127,6 +127,21 @@
     font-style: italic;
     font-weight: normal;
     color: #FFFFFF;
+    font-size: 15pt;
+    margin-top: 25%;
+    margin-left: 25%;
+    margin-bottom: 25%;
+}
+
+.deleteButton {
+    width: 140px;
+    height: 40px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: red;
     font-size: 15pt;
     margin-top: 25%;
     margin-left: 25%;
