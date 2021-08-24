@@ -32,7 +32,7 @@ class ViewOrdersBackPanel extends Component {
       <div className="backgroundRowImageCategory">
         <Row>
           <Col sm="4"></Col>
-          <Col sm="3">
+          <Col sm="6">
             <Row >
               <div className="container">
                 <h1 className="topicviewCategory">View Meals</h1>

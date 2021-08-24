@@ -9,7 +9,7 @@
 }
 body {
     background-position: center;
-    background: url(./Images/background.jpg) no-repeat center;
+    background: url(../../../Images/background.jpg) no-repeat center;
     background-attachment: fixed;
 }
 .imageBoxOffer {
