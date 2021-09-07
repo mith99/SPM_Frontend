@@ -72,8 +72,8 @@ const Header = () => {
                </SubMenu>
                <br/>
                <SubMenu title="Email Creator" icon={<AiOutlineMail/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Create Email</a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Emails</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/create-email' style={{color:'black'}}>Create Email</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/view-emails' style={{color:'black'}}>View Emails</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Manage Orders" icon={<AiOutlineShopping/>}  className='titleBackgound'>
