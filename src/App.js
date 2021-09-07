@@ -6,6 +6,8 @@ import AddTodaysSpecial from './IT19135830/components/todays-special/addTodaysSp
 import ViewSpecials from './IT19135830/components/todays-special/viewSpecials';
 import IndividualDish from './IT19135830/components/todays-special/viewIndividualDish';
 import EditDish from './IT19135830/components/todays-special/editSpecialDish';
+import CreateEmail from "./IT19135830/components/email-creator/createEmail";
+import ViewEmails from "./IT19135830/components/email-creator/viewEmails";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
           <Route path="/view-todays-special" component={ViewSpecials}></Route>
           <Route path="/view-dish/:id" component={IndividualDish}></Route>
           <Route path="/edit-dish/:id" component={EditDish}></Route>
+          <Route path="/create-email" component ={CreateEmail}></Route>
+          <Route path="/view-emails" component ={ViewEmails}></Route>
 
         </Switch>
         
