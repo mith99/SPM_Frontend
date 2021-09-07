@@ -73,15 +73,16 @@ class viewIndividualDish extends Component {
                                                 <Col sm="9">
                                                     <Row>
                                                         <Col sm='1'></Col>
-                                                        <Col sm="8">
+                                                        <Col sm="11">
                                                             <h2 className="dishNameInd">
                                                                 {this.state.dish.dishName}
                                                             </h2>
                                                             <br /><br />
 
-                                                            <h6 className="dishDetails">
+                                                            <h6 className="dishDetails" style={{width:'800px'}}>
                                                                 Description - {this.state.dish.description}
                                                             </h6>
+                                                            <br/><br/>
                                                            <h6 className="dishDetails">
                                                                 Price - {this.state.dish.price}
                                                             </h6>
@@ -100,26 +101,24 @@ class viewIndividualDish extends Component {
                                                     <Row>
                                                         <Col sm="6"></Col>
                                                         <Col sm="2">
-                                                            <br/>
                                                             <button
                                                                 className="btn btn-info"
                                                                 onClick={(e) =>
                                                                     this.editDish(e, this.state.dish._id)
                                                                 }
-                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh', marginTop:'-8vh'}}
 
                                                             >
                                                                 Edit
                                                             </button>
                                                         </Col>
                                                         <Col sm="2">
-                                                            <br/>
                                                             <button
                                                                 className=" btn btn-danger"
                                                                 onClick={(e) =>
                                                                     this.setState({closeModal:true})
                                                                 }
-                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh',marginTop:'-8vh'}}
                                                             >
                                                                 Delete
                                                             </button>
@@ -132,7 +131,7 @@ class viewIndividualDish extends Component {
                                                                         <Row>
                                                                             <Col md='12'>
                                                                                 <h5 style={{textAlign:'center',paddingTop:'1vh', paddingBottom:'-1vh'}}>
-                                                                                    Are you sure to remove this User ?
+                                                                                    Are you sure to remove this Dish ?
                                                                                 </h5>
                                                                                 <br/>
                                                                             </Col>

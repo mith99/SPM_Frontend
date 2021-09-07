@@ -85,10 +85,11 @@ class viewSpecials extends Component {
 
                                                         <Col sm="3">
                                                             <button
-                                                                className="deleteButton"
+                                                                className="btn btn-info"
                                                                 onClick={(e) =>
                                                                     this.viewIndividualDish(e, item._id)
                                                                 }
+                                                                style={{ width: '140px', height: '40px', borderRadius:'2vh', marginTop:'25%'}}
 
                                                             >
                                                                 Edit/Delete

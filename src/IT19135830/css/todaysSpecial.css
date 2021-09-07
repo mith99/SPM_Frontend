@@ -1,5 +1,5 @@
 .backgroundRowImage {
-    background: url(../images/background.jpg) no-repeat center;
+    background: url(../images/backgroundImg.png) no-repeat center;
     /*min-height: 100%;*/
     /*min-width: 100%;*/
     width: 100%;
@@ -82,7 +82,7 @@
     height: 40px;
     background: #EFEFEF;
     border-radius: 20px;
-    margin-left: 400px;
+    /*margin-left: 20px;*/
     padding-left: 2vh;
     padding-right: 2vh;
 }
@@ -109,7 +109,7 @@
 .imageBox {
     width: 400px;
     height: 330px;
-    margin-left: 1200px;
+    margin-left: 800px;
     margin-top: -70vh;
     padding-top: 1vh;
     border: 5px white;
