@@ -124,6 +124,7 @@ class AddOffer extends Component {
       .post("http://localhost:5000/offer/create", offer)
       .then((response) => {
         alert("Data inserted successfully");
+
         this.setState({
           offerName: "",
           description: "",
@@ -150,7 +151,7 @@ class AddOffer extends Component {
         <Row className="backgroundRowImage">
           <Col sm="3"></Col>
           <Col sm="9">
-            <form>
+            <form onSubmit={this.onSubmit}>
               <Row>
                 <Col sm="6">
                   <h1 className="topic">Add Offer</h1>
@@ -226,6 +227,7 @@ class AddOffer extends Component {
                   ></input>
                   <p className="fontPara">Discount Percentage</p>
                   <input
+                    type="number"
                     className="inputTextBox"
                     name="discountPercentage"
                     value={this.state.discountPercentage}
@@ -234,6 +236,7 @@ class AddOffer extends Component {
                   ></input>
                   <p className="fontPara">New Price</p>
                   <input
+                    type="number"
                     className="inputTextBox"
                     name="newPrice"
                     value={this.state.newPrice}
@@ -243,9 +246,9 @@ class AddOffer extends Component {
                   <br />
                   <br />
                   <button
-                    type="res"
+                    type="submit"
                     className="addButton"
-                    onClick={this.onSubmit}
+                    // onClick={this.onSubmit}
                   >
                     Add
                   </button>

@@ -17,9 +17,12 @@ function App() {
             path="/edit-delete-offer/:id"
             component={EditDeleteOffer}
           ></Route>
-          <Route path="/" component={ViewOfferBackPanel}></Route>
-          {/* <Route path="/" component={AddOffer}></Route> */}
-          {/* <Route path="/" component={DashBoard}></Route> */}
+          <Route
+            path="/view-offer-backpanel"
+            component={ViewOfferBackPanel}
+          ></Route>
+          <Route path="/add-offer" component={AddOffer}></Route>
+          <Route path="/" component={DashBoard}></Route>
         </Switch>
       </Router>
     </div>

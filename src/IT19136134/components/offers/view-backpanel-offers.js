@@ -74,7 +74,7 @@ class ViewOffersBackPanel extends Component {
                                 {" "}
                                 <br />
                                 <h5 className="priceDiscount">
-                                  {item.discount} discount
+                                  {item.discount}% discount
                                 </h5>
                                 <br />
                                 <h5 className="priceNew">New Price</h5>

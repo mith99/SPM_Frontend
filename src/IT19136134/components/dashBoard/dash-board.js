@@ -71,7 +71,7 @@ class DashBoard extends Component {
                             color: "#467fd0",
                           }}
                         >
-                          02
+                          03
                         </h1>
                       </div>
                       <p
@@ -104,7 +104,7 @@ class DashBoard extends Component {
                             color: "#42ba96",
                           }}
                         >
-                          02
+                          05
                         </h1>
                       </div>
                       <p
@@ -126,7 +126,7 @@ class DashBoard extends Component {
                 <div className="container">
                   <div
                     className="card text-dark bg-warning mb-3 "
-                    style={{ marginTop: "20pt" }}
+                    style={{ marginTop: "50pt" }}
                   >
                     <div className="card-body">
                       <Row>
@@ -138,7 +138,7 @@ class DashBoard extends Component {
                                 color: "#ffc107",
                               }}
                             >
-                              2500
+                              10
                             </h1>
                           </div>
                         </Col>

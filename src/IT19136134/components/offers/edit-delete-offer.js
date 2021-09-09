@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
+import { Col, Row, Modal, Card, Button } from "reactstrap";
 //import Select from "react-select";
 import Select from "react-dropdown-select";
 import axios from "axios";
@@ -22,6 +22,8 @@ class EditOffer extends Component {
       catergories: "",
 
       meals: "",
+
+      closeModal: "",
     };
 
     this.setSelectImageFile = this.setSelectImageFile.bind(this);
@@ -104,7 +106,7 @@ class EditOffer extends Component {
         `http://localhost:5000/offer/deleteoffer/${this.props.match.params.id}`
       )
       .then((response) => {
-        alert("Data Successfully Deleted.");
+        // alert("Data Successfully Deleted.");
         this.setState({
           offerName: "",
           description: "",
@@ -118,6 +120,7 @@ class EditOffer extends Component {
           selectedCatergories: "",
           selectedMeals: "",
         });
+        window.location = "/view-offer-backpanel";
       })
       .catch((error) => {
         console.log(error.message);
@@ -228,6 +231,7 @@ class EditOffer extends Component {
                 ></input>
                 <p className="fontPara">Discount Percentage</p>
                 <input
+                  type="number"
                   className="inputTextBox"
                   name="discountPercentage"
                   value={this.state.discountPercentage}
@@ -236,6 +240,7 @@ class EditOffer extends Component {
                 ></input>
                 <p className="fontPara">New Price</p>
                 <input
+                  type="number"
                   className="inputTextBox"
                   name="newPrice"
                   value={this.state.newPrice}
@@ -245,9 +250,77 @@ class EditOffer extends Component {
                 <br />
                 <br />
                 <row className="d-flex justify-content-between">
-                  <button className="editDeleteButton" onClick={this.onDelete}>
+                  <button
+                    className="editDeleteButton"
+                    onClick={(e) => this.setState({ closeModal: true })}
+                    // onClick={this.onDelete}
+                  >
                     Delete
                   </button>
+
+                  {/*Modal to confirm deletedish*/}
+
+                  <Modal
+                    isOpen={this.state.closeModal}
+                    style={{ alignSelf: "center", marginTop: "5vh" }}
+                  >
+                    <div
+                      style={{
+                        paddingLeft: "3vh",
+                        paddingRight: "3vh",
+                        paddingBottom: "2vh",
+                        paddingTop: "1vh",
+                      }}
+                    >
+                      <Row>
+                        <Col md="12">
+                          <h5
+                            style={{
+                              textAlign: "center",
+                              paddingTop: "1vh",
+                              paddingBottom: "-1vh",
+                            }}
+                          >
+                            Are you sure to remove this Offer ?
+                          </h5>
+                          <br />
+                        </Col>
+                      </Row>
+
+                      <div
+                        className=" px-5 d-flex  justify-content-between "
+                        style={{ paddingBottom: "1vh", paddingTop: "1vh" }}
+                      >
+                        <Button
+                          className="ml-1"
+                          color="danger"
+                          onClick={this.onDelete}
+                          style={{
+                            width: "140px",
+                            height: "40px",
+                            borderRadius: "2vh",
+                          }}
+                        >
+                          Delete
+                        </Button>
+
+                        <Button
+                          className="ml-1"
+                          color="danger"
+                          outline
+                          onClick={() => this.setState({ closeModal: false })}
+                          style={{
+                            width: "140px",
+                            height: "40px",
+                            borderRadius: "2vh",
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  </Modal>
+
                   <button className="editDeleteButton" onClick={this.onEdit}>
                     Edit
                   </button>
