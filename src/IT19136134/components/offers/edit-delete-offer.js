@@ -101,7 +101,7 @@ class EditOffer extends Component {
   }
 
   onDelete(e) {
-    axios
+    axios 
       .delete(
         `http://localhost:5000/offer/deleteoffer/${this.props.match.params.id}`
       )
