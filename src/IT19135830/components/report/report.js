@@ -20,12 +20,12 @@ class Report extends Component {
     render() {
         return (
             <div>
-                <Row className="backgroundRowImageReport">
+                <Row className="backgroundRowImageRep">
                     <Col sm="3"></Col>
                     <Col sm="9">
                         <Row>
                             <div className="container">
-                                <h1 className="topicviewReport">Reports</h1>
+                                <h1 className="topicviewRep">Reports</h1>
                             </div>
                             <Col sm="6">
                                 <div

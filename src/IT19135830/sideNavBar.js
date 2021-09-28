@@ -62,33 +62,33 @@ const Header = () => {
               </MenuItem>
               <br/>
               <SubMenu title="Manage Categories" icon={<FaList/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Add Categories </a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Categories</a></MenuItem>
+                <MenuItem className='menuItemFont menuItemBackground'><a href='/' style={{color:'white'}}>Add Categories </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'white'}}>View Categories</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Manage Menus" icon={<BiFoodMenu/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Add Menus </a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Menus</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'white'}}>Add Menus </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'white'}}>View Menus</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Email Creator" icon={<AiOutlineMail/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/create-email' style={{color:'black'}}>Create Email</a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/view-emails' style={{color:'black'}}>View Emails</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/create-email' style={{color:'white'}}>Create Email</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/view-emails' style={{color:'white'}}>View Emails</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Manage Orders" icon={<AiOutlineShopping/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Add Orders </a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Orders </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'white'}}>Add Orders </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'white'}}>View Orders </a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Manage Offers" icon={<MdLocalOffer/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Add Offers</a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Offers</a></MenuItem>
+                <MenuItem className='menuItemFont' ><a href='/' style={{color:'white'}}>Add Offers</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'white'}}>View Offers</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Today's Specials" icon={<AiOutlineStar/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/add-todays-special' style={{color:'black'}}>Add Today's Specials </a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/view-todays-special' style={{color:'black'}}>View Today's Specials </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/add-todays-special' style={{color:'white'}}>Add Today's Specials </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/view-todays-special' style={{color:'white'}}>View Today's Specials </a></MenuItem>
                </SubMenu>
                <br/>
                <MenuItem icon={<HiDocumentReport />} className='titleBackgound'>

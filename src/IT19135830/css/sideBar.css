@@ -1,8 +1,8 @@
-/* .navColor{
-    background-color: rgba(0,0,0,0.58) ;
+/* .navColor{*/
+/*    background-color: rgba(0,0,0,0.58) ;*/
 
-    
-} */
+
+/*}*/
 
 .titleBackgound{
   background:#C4C4C4;
@@ -14,6 +14,14 @@
   font-family: Milonga;
   font-size: 17px !important;
 }
+
+.menuItemBackground{
+  backgroundColor:"#d8d8d8";
+  width:273px;
+  float:left;
+  marginLeft:-29px;
+}
+
 
 .sidebar:hover{
   overflow-y: scroll;
