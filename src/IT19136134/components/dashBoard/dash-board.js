@@ -4,6 +4,45 @@ import axios from "axios";
 import DashBoardCss from "../../styleSheets/dashBoard.css";
 
 class DashBoard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      emailSubscriberCount: 0,
+      canceledCounts: 0,
+      pendingCount: 0,
+      completedCount: 0,
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/counter/emailSubscriberCount")
+      .then((response) => {
+        this.setState({ emailSubscriberCount: response.data.data });
+        console.log(this.state.emailSubscriberCount);
+      });
+
+    axios
+      .get("http://localhost:5000/counter/cancelledCount")
+      .then((response) => {
+        this.setState({ canceledCounts: response.data.data });
+        console.log(this.state.canceledCounts);
+      });
+
+    axios.get("http://localhost:5000/counter/pendingCount").then((response) => {
+      this.setState({ pendingCount: response.data.data });
+      console.log(this.state.pendingCount);
+    });
+
+    axios
+      .get("http://localhost:5000/counter/acceptedCount")
+      .then((response) => {
+        this.setState({ completedCount: response.data.data });
+        console.log(this.state.completedCount);
+      });
+  }
+
   render() {
     return (
       <div>
@@ -38,7 +77,7 @@ class DashBoard extends Component {
                             color: "#df4759",
                           }}
                         >
-                          02
+                          {this.state.canceledCounts}
                         </h1>
                       </div>
                       <p
@@ -71,7 +110,7 @@ class DashBoard extends Component {
                             color: "#467fd0",
                           }}
                         >
-                          03
+                          {this.state.pendingCount}
                         </h1>
                       </div>
                       <p
@@ -104,7 +143,7 @@ class DashBoard extends Component {
                             color: "#42ba96",
                           }}
                         >
-                          05
+                          {this.state.completedCount}
                         </h1>
                       </div>
                       <p
@@ -138,7 +177,7 @@ class DashBoard extends Component {
                                 color: "#ffc107",
                               }}
                             >
-                              10
+                              {this.state.emailSubscriberCount}
                             </h1>
                           </div>
                         </Col>

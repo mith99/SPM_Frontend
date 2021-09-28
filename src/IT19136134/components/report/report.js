@@ -3,7 +3,7 @@ import axios from "axios";
 import { Col, Row } from "reactstrap";
 import ViewOfferBackPanelCss from "../../styleSheets/report.css";
 
-class ViewOffersBackPanel extends Component {
+class ReportCommon extends Component {
   constructor(props) {
     super(props);
 
@@ -161,4 +161,4 @@ class ViewOffersBackPanel extends Component {
   }
 }
 
-export default ViewOffersBackPanel;
+export default ReportCommon;

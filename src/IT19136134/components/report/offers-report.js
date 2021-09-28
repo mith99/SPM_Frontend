@@ -16,7 +16,7 @@ class OfferReport extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/offer/").then((response) => {
+    axios.get("http://localhost:5000/offer/weeklyOffer").then((response) => {
       this.setState({ offers: response.data.data });
     });
   }
@@ -46,19 +46,16 @@ class OfferReport extends Component {
             <h1 className="topicviewOfferreport">Offer List Report</h1>
             <br></br>
             <button
+              type="button"
+              className="btn btn-outline-danger"
               onClick={this.printDocument}
               style={{
                 borderRadius: "5px",
                 textAlign: "center",
               }}
               variant="contained"
-              color="primary"
             >
-              <i
-                className="fa fa-file-pdf-o fa-lg"
-                aria-hidden="true"
-                style={{ color: "red" }}
-              >
+              <i className="fa fa-file-pdf-o fa-lg" aria-hidden="true">
                 {" "}
                 Generate PDF
               </i>
