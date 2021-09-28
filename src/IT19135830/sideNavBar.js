@@ -92,7 +92,9 @@ const Header = () => {
                </SubMenu>
                <br/>
                <MenuItem icon={<HiDocumentReport />} className='titleBackgound'>
+                   <a href='/reports' style={{color:'black'}}>
                     Report Generation
+                   </a>
               </MenuItem>
 
               
