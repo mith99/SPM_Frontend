@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import {Col, Row,Spinner} from "reactstrap";
-import {Controls} from "@lottiefiles/react-lottie-player";
+// import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 
 class ViewEmails extends Component {
