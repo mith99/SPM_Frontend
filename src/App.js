@@ -6,6 +6,8 @@ import categoryList from './IT19167992/Components/Category/category-list';
 import ViewMealsBackPanel from "./IT19167992/Components/Meal/meals-list";
 import EditAndDeleteCategory from './IT19167992/Components/Category/edit-delete-category';
 import EditMeal from './IT19167992/Components/Meal/edit-delete-meal';
+
+
 import NavBar from './IT19135830/sideNavBar';
 import MealReport from "./IT19167992/Components/Meal/meal-report";
 

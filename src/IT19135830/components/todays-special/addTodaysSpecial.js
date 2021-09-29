@@ -61,7 +61,11 @@ class AddTodaysSpecial extends Component {
 
     axios.post('http://localhost:5000/user/add-todays-special', todaySpecial)
         .then(response => {
+
           alert('Data Successfully inserted')
+
+          alert('Data Successfully inserted');
+          window.location=('/view-todays-special');
         })
         .catch(error => {
           console.log(error.message);
@@ -74,6 +78,7 @@ class AddTodaysSpecial extends Component {
 
   render() {
     return (
+
       <div className="backgroundRowImage ">
         <Row >
           <Col sm="6" style={{marginLeft:'300px'}}>
@@ -209,6 +214,145 @@ class AddTodaysSpecial extends Component {
 
         
       </div>
+        <div>
+          <Row className="backgroundRowImageOffer">
+            <Col sm="2"></Col>
+            <Col sm="8">
+              <Row>
+
+                <h1 className='titleStyle' style={{opacity:'100%', width:'900px'}}>Add Today's Special</h1>
+                <br/>
+                <br/>
+                <div className="container">
+
+                  <div className="card-body">
+                    <Row style={{paddingTop:'4vh', paddingLeft:'3vh', height:'85vh', background:'rgba(26,26,26, 0.5)', color:'white', marginTop:'8vh', width:'150vh'}}>
+
+                      <Col sm="12">
+                        <Row>
+
+                          <Col sm='1'></Col>
+                          <Col sm="8">
+
+                            <div className="mb-3">
+                              <label htmlFor="exampleFormControlInput1"
+                                     className="form-label titleStyleEmail">Dish Name</label>
+                              <br/>
+                              <input
+                                  className="inputTextBox"
+                                  name="dishName"
+                                  value={this.state.dishName}
+                                  onChange={this.onChange}
+                                  required
+                              ></input>
+
+
+                            </div>
+                            <div className="mb-3">
+                              <label htmlFor="exampleFormControlTextarea1"
+                                     className="form-label titleStyleEmail">Description</label>
+                              <br/>
+                              <textarea
+                                          className="inputTextBox"
+                                          name="description"
+                                          value={this.state.description}
+                                          onChange={this.onChange}
+                                          required
+                                          style={{ height:'100px', paddingTop:'1vh'}}
+                                      ></textarea>
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="exampleFormControlTextarea1"
+                                     className="form-label titleStyleEmail">Price</label>
+                              <br/>
+                              <input
+                                  className="inputTextBox"
+                                  name="price"
+                                  type="number"
+                                  min = "0"
+                                  value={this.state.price}
+                                  onChange={this.onChange}
+                                  required
+                              ></input>
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="exampleFormControlTextarea1"
+                                     className="form-label titleStyleEmail">Date</label>
+                              <br/>
+                              <input
+                                  className="inputTextBox"
+                                  name="date"
+                                  type='date'
+                                  value={this.state.date}
+                                  onChange={this.onChange}
+                                  required
+                              ></input>
+                            </div>
+
+                            <div className="mb-3">
+                              <label htmlFor="exampleFormControlTextarea1"
+                                     className="form-label titleStyleEmail">Image</label>
+                              <br/>
+                              <input
+                                  className="inputTextBox"
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={this.setSelectImageFile}
+                                  required
+                              ></input>
+                            </div>
+                          </Col>
+
+                        </Row>
+                        <Row className='-flex flex-row-reverse'>
+                          <Col sm='1'></Col>
+                          <Col sm="2">
+                            <br/>
+                            <button
+                                className="btn btn-info"
+                                onClick={this.onSubmit}
+                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+
+                            >
+                              Add
+                            </button>
+                          </Col>
+                          <Col sm="2">
+                            <br/>
+                            <button
+                                className=" btn btn-danger"
+                                // onClick={(e) =>
+                                // this.setState({closeModal:true})}
+                                type='reset'
+                                style={{ width: '140px', height: '40px', borderRadius:'2vh'}}
+                            >
+                              Reset
+                            </button>
+
+
+
+
+                          </Col>
+
+                        </Row>
+                      </Col>
+                      <Col sm='6'>
+                        <img
+                            src={this.state.selectedFile}
+                            alt="item image"
+                            className="imageBox"
+                        /></Col>
+                    </Row>
+                  </div>
+
+                </div>
+              </Row>
+            </Col>
+          </Row>
+
+        </div>
     );
   }
 }
