@@ -20,7 +20,11 @@ class ViewMealsBackPanel extends Component {
   }
 
   navigateToEditDeletePage(e, mealId) {
-    window.location = `/edit-delete-meal/${mealId}`;
+    // window.location = `/edit-delete-meal/${mealId}`;
+    let data = {
+      mealId: mealId
+  }
+  this.props.history.push("/edit-delete-meal", data)
   }
 
   render() {

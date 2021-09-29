@@ -8,16 +8,7 @@
     text-align: right;
 }
 
-.backgroundRowImageCategory {
-    background: url(../Images/restaurant-in-valkenswaard.jpg) no-repeat center;
-    background-size: cover;
-    min-height: 100%;
-    min-width: 100%;
-    width: 100vh;
-    height: 100%;
-    margin-right: 0%;
-    margin-left: 0%;
-}
+ 
 
 .imageBoxOffer {
     width: 200px;
@@ -47,6 +38,8 @@
     text-align: center;
 }
 
+ 
+
 .priceDiscount {
     font-family: sans-serif;
     font-weight: bold;
@@ -70,6 +63,12 @@
     color: maroon;
 }
 
+body {
+    background-position: center;
+    background: url(../Images/background.png) no-repeat center;
+    background-attachment: fixed;
+}
+
 .addButton {
     width: 140px;
     height: 40px;
@@ -91,14 +90,17 @@
 }
 
 .editDeleteButton {
-    width: 140px;
-    height: 40px;
+     
     background: #47AAE2;
-    border-radius: 45px;
+    
     font-family: Merriweather;
     font-style: italic;
     font-weight: normal;
     color: #FFFFFF;
     font-size: 15pt;
     margin-right: 100pt;
+    width: '140px';
+    height: '40px';
+    border-radius: '2vh';
+       
 }

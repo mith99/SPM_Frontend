@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
+import { Col, Row , Modal, Card, Button} from "reactstrap";
 import axios from "axios";
 import FormCss from '../../Stylesheets/form.css';
-
+ 
 class EditAndDeleteCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       
- 
+      closeModal:'',
+      categoryId:'',
       categoryName : '',
       selectedFile:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC4RszYZwlndjEI41DS3tay-AFYmGK2s8cEaGYRffLzFwYnOk4psE3eAYLiUrsUw4_Q8&usqp=CAU",
@@ -25,9 +25,9 @@ class EditAndDeleteCategory extends Component {
   }
 
   componentDidMount() {
-     
-    console.log(this.props.match.params.id);
-        axios.get(`http://localhost:5000/category/getCategoryById/${this.props.match.params.id}`)
+    const categotyIdentification = this.props.location.state.categoryId
+    console.log(categotyIdentification);
+        axios.get(`http://localhost:5000/category/getCategoryById/${categotyIdentification}`)
         .then(response => {
                 this.setState ({    categoryName :response.data.categories.categoryName,
                                     selectedFile: response.data.categories.image,
@@ -66,7 +66,8 @@ class EditAndDeleteCategory extends Component {
   }
 
   onDelete(e) {
-    axios.delete(`http://localhost:5000/category/delete/${this.props.match.params.id}`)
+    const categotyIdentification = this.props.location.state.categoryId
+    axios.delete(`http://localhost:5000/category/delete/${categotyIdentification}`)
     .then(response => {
         alert('Data Successfully Deleted.')
     })
@@ -79,6 +80,7 @@ class EditAndDeleteCategory extends Component {
    
   onEdit(e) {
     e.preventDefault();
+    const categotyIdentification = this.props.location.state.categoryId
     let category = {
       categoryName: this.state.categoryName,   
       image: this.state.selectedFile,
@@ -86,7 +88,7 @@ class EditAndDeleteCategory extends Component {
     console.log("category Details", category);
     axios
       .put(
-        `http://localhost:5000/category/edit/${this.props.match.params.id}`,
+        `http://localhost:5000/category/edit/${categotyIdentification}`,
         category
       )
       .then((response) => {
@@ -112,7 +114,7 @@ class EditAndDeleteCategory extends Component {
                 <img
                   src={this.state.selectedFile}
                   alt="item image"
-                  className="imageBox"
+                  className="imageBoxNew"
                 />
                 <br />
                 <br />
@@ -121,6 +123,7 @@ class EditAndDeleteCategory extends Component {
                 
               </Col>
               <Col sm="6" className="spaceTop">
+              <br></br><br></br><br></br>
               <br></br><br></br><br></br>
                 <p className="fontPara">Category Name</p>
                 <input
@@ -142,13 +145,73 @@ class EditAndDeleteCategory extends Component {
                 ></input>
                 <br></br><br></br><br></br>
                 <row className="d-flex justify-content-between">
-                  <button className="editDeleteButton" onClick={this.onDelete}>
-                    Delete
-                  </button>
-                  <button className="editDeleteButton" onClick={this.onEdit}>
+               
+                  <Col sm="6" >
+                  <button className="editnewDeleteButton" onClick={this.onEdit}>
                     Edit
                   </button>
-                </row>
+                  </Col>
+                  <Col sm="6" >
+               
+                    <button
+                      className=" btn btn-danger"
+                      onClick={(e) =>
+                        this.setState({ closeModal: true })
+                      }
+                      style={{ width: '160px', height: '60px', borderRadius: '4vh' }}
+                    >
+                      Delete
+                    </button>
+                  </Col>
+                  </row>
+                   {/*Modal to confirm deletedish*/}
+
+                    <Modal isOpen={this.state.closeModal} style={{ alignSelf: 'center', marginTop: '5vh' }}>
+                      <div style={{ paddingLeft: '3vh', paddingRight: '3vh', paddingBottom: '2vh', paddingTop: '1vh' }}>
+                        <Row>
+                          <Col md='12'>
+                            <h5 style={{ textAlign: 'center', paddingTop: '1vh', paddingBottom: '-1vh' }}>
+                              Are you sure to remove this category ?
+                            </h5>
+                            <br />
+                          </Col>
+                        </Row>
+
+                        <div className=" px-5 d-flex  justify-content-between " 
+                        style={{ 
+                            paddingBottom: '1vh',
+                             paddingTop: '1vh' 
+                             }}>
+                          <Button
+                            className="ml-1"
+                            color="danger"
+                            onClick={this.onDelete}
+                            style={{ width: '140px', height: '40px', borderRadius: '2vh' }}
+                          >
+                            Delete
+                          </Button>
+
+                          <Button
+                            className="ml-1"
+                            color="danger"
+                            outline
+                            onClick={() => this.setState({
+                              closeModal: false
+                            })}
+                            style={{ 
+                              width: '140px', 
+                              height: '40px', 
+                              borderRadius: '2vh' 
+                            }}
+
+                          >
+                            Cancel
+                          </Button>
+                        </div>
+                      </div>
+                    </Modal>
+              
+              
               </Col>
             </Row>
           </Col>

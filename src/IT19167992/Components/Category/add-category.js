@@ -67,6 +67,7 @@ class createCategory extends Component {
   render() {
     return (
       <div>
+        <form onSubmit= {this.onSubmit}>
         <Row>
           <Col sm="2"></Col>
           <Col sm="10">
@@ -78,7 +79,7 @@ class createCategory extends Component {
                 <img
                   src={this.state.selectedFile}
                   alt="item image"
-                  className="imageBox"
+                  className="imageBoxNew"
                 />
                 <br />
                 <br />
@@ -87,6 +88,7 @@ class createCategory extends Component {
                 
               </Col>
               <Col sm="6" className="spaceTop">
+              <br></br><br></br><br></br>
               <br></br><br></br><br></br>
                 <p className="fontPara">Category Name</p>
                 <input
@@ -104,16 +106,27 @@ class createCategory extends Component {
                   type="file"
                   accept="image/*"
                   onChange={this.setSelectImageFile}
-                  
+                  required
                 ></input>
                 <br></br><br></br><br></br>
-                <button className="addButton" onClick={this.onSubmit}>
+                <Row>
+                  <Col sm="6">
+
+                  </Col>
+                  <Col sm="6">
+                  <button className="addNewButton">
                   Add
                 </button>
+                  </Col>
+                </Row>
+                
               </Col>
             </Row>
           </Col>
         </Row>
+
+        </form>
+        
       </div>
     );
   }

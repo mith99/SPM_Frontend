@@ -21,11 +21,11 @@ class CategoryList extends Component {
   }
 
   navigateToEditDeletePage(e, categoryId) {
-     window.location = `/edit-delete-category/${categoryId}`;
-  //   let data = {
-  //     categoryId: categoryId
-  // }
-  // this.props.history.push("/edit-delete-category", data)
+    //  window.location = `/edit-delete-category/${categoryId}`;
+    let data = {
+      categoryId: categoryId
+  }
+  this.props.history.push("/edit-delete-category", data)
   }
 
   render() {

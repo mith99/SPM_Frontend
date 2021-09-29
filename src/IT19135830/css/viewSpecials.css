@@ -1,0 +1,170 @@
+.topicviewOffer {
+    margin-top: 20pt;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0%;
+    text-align: right;
+    background-color: rgba(248, 247, 247, 0.4);
+    width: fit-content;
+    margin-left: 80%;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.titleStyle{
+    height: 8vh;
+    text-align: center;
+    margin-top: 5vh;
+    /* margin-left:50% ; */
+    /* padding-left:50px ; */
+
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 10vh;
+    line-height: 8vh;
+
+    color: #000000;
+
+    background-color: rgba(248, 247, 247, 0.5);
+    width:80vh;
+    border-radius:2vh;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dishNameStyle{
+    height: 8vh;
+    text-align: center;
+    margin-top: 5vh;
+    /* margin-left:50% ; */
+    /* padding-left:50px ; */
+
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 10vh;
+    line-height: 8vh;
+
+    color: #000000;
+
+    background-color: rgba(161, 161, 161, 0.8);
+    width:80vh;
+    border-radius:2vh;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.backgroundRowImageOffer {
+    background: url(../images/background.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100vh;
+    height: 100vh;
+    margin-right: 0%;
+    margin-left: 0%;
+    padding-bottom: 100%;
+}
+
+.imageBoxOffer {
+    width: 200px;
+    height: 150px;
+}
+
+.imageBoxOfferIndividual {
+    width: 300px;
+    height: 300px;
+}
+
+.paraTerms {
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 9pt;
+    color: #DC143C;
+}
+
+.offerNamefont {
+    font-family: Marmelad;
+    font-weight: bold;
+    color: black;
+}
+
+.dishNameInd {
+    font-family: Marmelad;
+    /*font-weight: bold;*/
+    color: black;
+    font-size: 60px;
+    /*width: 500px;*/
+    height: 43px;
+}
+
+.dishDetails {
+    font-family: Marmelad;
+    /*font-weight: bold;*/
+    color: black;
+    font-style: normal;
+    font-size: 20px;
+    width: 376px;
+    height: 43px;
+}
+
+
+.offerDetails {
+    font-family: Marmelad;
+    font-weight: normal;
+    color: black;
+    text-align: center;
+}
+
+.priceDiscount {
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    animation: blinker 1s linear infinite;
+    color: maroon;
+    font-size: 18pt;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.priceNew {
+    font-family: sans-serif;
+    text-align: center;
+    color: red;
+}
+
+.editBtn {
+    width: 140px;
+    height: 40px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin-top: 25%;
+    margin-left: 25%;
+    margin-bottom: 25%;
+}
+
+.deleteButton {
+    width: 140px;
+    height: 40px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: red;
+    font-size: 15pt;
+    margin-top: 25%;
+    margin-left: 25%;
+    margin-bottom: 25%;
+}

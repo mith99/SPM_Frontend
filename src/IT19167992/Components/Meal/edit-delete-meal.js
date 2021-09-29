@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap"; 
+import { Col, Row , Modal, Card, Button} from "reactstrap";
 import axios from "axios";
 import FormCss from '../../Stylesheets/form.css';
 import Select from "react-dropdown-select";
@@ -9,6 +9,8 @@ class EditMeal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      closeModal:'',
+      mealId:'',
       mealName : '',
       price : '',
       description : '',
@@ -30,10 +32,11 @@ class EditMeal extends Component {
   }
 
   componentDidMount() {
+    const mealIdentification = this.props.location.state.mealId
     console.log(this.props.match.params.id);
     axios
       .get(
-        `http://localhost:5000/meal/getMealById/${this.props.match.params.id}`
+        `http://localhost:5000/meal/getMealById/${mealIdentification}`
       )
       .then((response) => {
         console.log(response.data);
@@ -92,7 +95,8 @@ class EditMeal extends Component {
   }
 
   onDelete(e) {
-    axios.delete(`http://localhost:5000/meal/delete/${this.props.match.params.id}`)
+    const mealIdentification = this.props.location.state.mealId
+    axios.delete(`http://localhost:5000/meal/delete/${mealIdentification}`)
     .then(response => {
         alert('Data Successfully Deleted.')
     })
@@ -105,6 +109,7 @@ class EditMeal extends Component {
 
   onEdit(e) {
     e.preventDefault();
+    const mealIdentification = this.props.location.state.mealId
     let meal = {
       mealName: this.state.mealName,
       price: this.state.price,
@@ -114,7 +119,7 @@ class EditMeal extends Component {
     console.log("Offer Details", meal);
     axios
       .put(
-        `http://localhost:5000/meal/edit/${this.props.match.params.id}`,
+        `http://localhost:5000/meal/edit/${mealIdentification}`,
         meal
       )
       .then((response) => {
@@ -140,7 +145,7 @@ class EditMeal extends Component {
                 <img
                   src={this.state.selectedFile}
                   alt="item image"
-                  className="imageBox"
+                  className="imageBoxNew"
                 />
                 <br />
                 <br />
@@ -189,15 +194,74 @@ class EditMeal extends Component {
                   onChange={this.setSelectImageFile}
                 
                 ></input>
-                <br></br>
+                <br></br><br></br><br></br>
                 <row className="d-flex justify-content-between">
-                  <button className="editDeleteButton" onClick={this.onDelete}>
-                    Delete
-                  </button>
-                  <button className="editDeleteButton" onClick={this.onEdit}>
+                 
+                  <Col sm="6" >
+                  <button className="editnewDeleteButton" onClick={this.onEdit}>
                     Edit
                   </button>
-                </row>
+                  </Col>  
+                  <Col sm="6" >
+               
+                    <button
+                      className=" btn btn-danger"
+                      onClick={(e) =>
+                        this.setState({ closeModal: true })
+                      }
+                      style={{ width: '160px', height: '60px', borderRadius: '4vh' }}
+                    >
+                      Delete
+                    </button>
+                  </Col>
+                  </row>
+                   {/*Modal to confirm deletedish*/}
+
+                    <Modal isOpen={this.state.closeModal} style={{ alignSelf: 'center', marginTop: '5vh' }}>
+                      <div style={{ paddingLeft: '3vh', paddingRight: '3vh', paddingBottom: '2vh', paddingTop: '1vh' }}>
+                        <Row>
+                          <Col md='12'>
+                            <h5 style={{ textAlign: 'center', paddingTop: '1vh', paddingBottom: '-1vh' }}>
+                              Are you sure to remove this meal ?
+                            </h5>
+                            <br />
+                          </Col>
+                        </Row>
+
+                        <div className=" px-5 d-flex  justify-content-between " 
+                        style={{ 
+                            paddingBottom: '1vh',
+                             paddingTop: '1vh' 
+                             }}>
+                          <Button
+                            className="ml-1"
+                            color="danger"
+                            onClick={this.onDelete}
+                            style={{ width: '140px', height: '40px', borderRadius: '2vh' }}
+                          >
+                            Delete
+                          </Button>
+
+                          <Button
+                            className="ml-1"
+                            color="danger"
+                            outline
+                            onClick={() => this.setState({
+                              closeModal: false
+                            })}
+                            style={{ 
+                              width: '140px', 
+                              height: '40px', 
+                              borderRadius: '2vh' 
+                            }}
+
+                          >
+                            Cancel
+                          </Button>
+                        </div>
+                      </div>
+                    </Modal>           
+              
               </Col>
             </Row>
           </Col>

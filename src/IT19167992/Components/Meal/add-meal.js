@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
-import Select from "react-dropdown-select";
+// import Select from "react-dropdown-select";
 import axios from "axios";
 import FormCss from '../../Stylesheets/form.css';
+import Select from "react-select";
 
 class createMeal extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class createMeal extends Component {
 
       catergories: [],
       optionsCatergories: [],
-      selectedCatergories: "",
+      selectedCatergories: [],
 
        
     };
@@ -52,6 +53,13 @@ class createMeal extends Component {
      
   }
 
+   
+
+  // onCatergorySelect(e) {
+  //   this.setState({
+  //     selectedCatergories: e ? e.map((item) => item.value) : [],
+  //   });
+  // }
   onCatergorySelect(e) {
     this.setState({
       selectedCatergories: e.map((item) => item.value),
@@ -82,9 +90,9 @@ class createMeal extends Component {
     e.preventDefault();
     let meal = {
         mealName : this.state.mealName,
+        catergories: this.state.selectedCatergories.toString(),
         price : this.state.price,
         description : this.state.description,
-        catergories: this.state.selectedCatergories,
         image: this.state.selectedFile,
     };
     console.log("Meals Details", meal);
@@ -98,21 +106,57 @@ class createMeal extends Component {
         alert(error.message);
       });
   }
+  // onSubmit(e) {
+  //   e.preventDefault();
+  //   let meal = {
+ 
+  //     mealName : this.state.mealName,
+  //     catergories: this.state.selectedCatergories,
+  //     price : this.state.price,
+  //     description : this.state.description,
+  //     image: this.state.selectedFile,
+  //   };
+  //   console.log("Offer Details", meal);
+  //   axios
+  //     .post("http://localhost:5000/meal/create", meal)
+  //     .then((response) => {
+  //       alert("Data inserted successfully");
+
+  //       this.setState({
+  //         mealName: "",
+  //         selectedCatergories: "",
+  //         price: "",
+  //         description: "",
+          
+  //         selectedFile:
+  //           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgC4RszYZwlndjEI41DS3tay-AFYmGK2s8cEaGYRffLzFwYnOk4psE3eAYLiUrsUw4_Q8&usqp=CAU",
+
+          
+       
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //       alert(error.message);
+  //     });
+  // }
 
   render() {
     return (
       <div>
+        <form onSubmit={this.onSubmit}>
         <Row>
           <Col sm="2"></Col>
           <Col sm="10">
             <Row className="backgroundRowImage">
+          
               <Col sm="6">
                 <h1 className="topic">Add Meal</h1>
                 <p className="fontPara">Upload Image</p>
                 <img
                   src={this.state.selectedFile}
                   alt="item image"
-                  className="imageBox"
+                  className="imageBoxNew"
                 />
                 <br />
                 <br />
@@ -147,11 +191,22 @@ class createMeal extends Component {
 
                 <p className="fontPara">Catergory</p>
                 <div className="col-md-9">
-                  <Select
-                    options={this.state.optionsCatergories}
+                  {/* <Select
+                    // options={this.state.optionsCatergories}
+                    // onChange={this.onCatergorySelect}
+                    // className="inputTextBox"
+                    // required
+                    optionsCatergories={this.state.optionsCatergories}
                     onChange={this.onCatergorySelect}
                     className="inputTextBox"
-                  />
+                    required
+                  /> */}
+                    <Select
+                      options={this.state.optionsCatergories}
+                      onChange={this.onCatergorySelect}
+                      className="basic-multi-select"
+                      isMulti
+                    />
                 </div>
                 <p className="fontPara">Image</p>
                 <input
@@ -159,19 +214,24 @@ class createMeal extends Component {
                   type="file"
                   accept="image/*"
                   onChange={this.setSelectImageFile}
-                
+                  required
                 ></input>
-                <br></br>
-        
-                <br />
-                <br />
-                <button className="addButton" onClick={this.onSubmit}>
+                <br></br><br></br><br></br>
+  
+                <Row>
+                  <Col sm="6">
+                  </Col>
+                  <Col sm="6">
+                  <button className="addNewButton">
                   Add
                 </button>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </Col>
         </Row>
+        </form>
       </div>
     );
   }
