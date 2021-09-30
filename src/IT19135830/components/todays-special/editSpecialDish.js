@@ -42,25 +42,32 @@ class EditSpecialDish extends Component {
 
     edit(e){
          e.preventDefault();
-        let todaySpecial = {
-            dishName: this.state.dishName,
-            description: this.state.description,
-            price: this.state.price,
-            date: this.state.date,
-            image: this.state.selectedFile
+
+        if(this.state.dishName == ""|| this.state.description == "" || this.state.price == 0 || this.state.date == "" || this.state.date == ""|| this.state.image == "") {
+            alert("Please Fill All The Fields");
+
         }
+        else {
+            let todaySpecial = {
+                dishName: this.state.dishName,
+                description: this.state.description,
+                price: this.state.price,
+                date: this.state.date,
+                image: this.state.selectedFile
+            }
 
-        console.log(todaySpecial);
+            console.log(todaySpecial);
 
-        axios.patch(`http://localhost:5000/user/edit-todays-special/${this.props.match.params.id}`, todaySpecial)
-            .then(response => {
-                alert('Data Successfully inserted');
-                window.location=('/view-todays-special');
-            })
-            .catch(error => {
-                console.log(error.message);
-                alert(error.message);
-            })
+            axios.patch(`http://localhost:5000/user/edit-todays-special/${this.props.match.params.id}`, todaySpecial)
+                .then(response => {
+                    alert('Data Successfully inserted');
+                    window.location = ('/view-todays-special');
+                })
+                .catch(error => {
+                    console.log(error.message);
+                    alert(error.message);
+                })
+        }
 
     }
 
