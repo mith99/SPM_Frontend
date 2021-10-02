@@ -28,7 +28,7 @@ class ViewMealsBackPanel extends Component {
     render() {
         return (
             <div>
-                <Row>
+                <Row className="backgroundRowImage">
                     <Col sm="4"></Col>
                     <Col sm="6">
                         <Row >

@@ -22,6 +22,7 @@ import IndividualDish from './IT19135830/components/todays-special/viewIndividua
 import EditDish from './IT19135830/components/todays-special/editSpecialDish';
 import CreateEmail from "./IT19135830/components/email-creator/createEmail";
 import ViewEmails from "./IT19135830/components/email-creator/viewEmails";
+import OrderReport from "./IT19134536/pages/Order-page-backpannel/pages/order-report";
 
   function App() {
     return (
@@ -40,6 +41,7 @@ import ViewEmails from "./IT19135830/components/email-creator/viewEmails";
               <Route path="/order/view-orders-list" component={ViewOrdersBackPanel}></Route>
               <Route path="/feedback/view-feedbacks-list" component={ViewFeedbackPanel}></Route>
               <Route path="/order/view-single-order" component={ViewOrderSingleBackPanel}></Route>
+	      <Route path="/order-list" component={OrderReport} />
               <Route path="/add-category" component={createCategory} />
               <Route path="/category-list" component={categoryList} />
               <Route path="/add-meal" component={createMeal} />

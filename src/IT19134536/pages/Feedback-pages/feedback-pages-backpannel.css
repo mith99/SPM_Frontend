@@ -7,11 +7,7 @@
     margin-bottom: 0%;
     text-align: right;
 }
-body {
-    background-position: center;
-    background: url(../../../Images/background.jpg) no-repeat center;
-    background-attachment: fixed;
-}
+
 .imageBoxOffer {
     width: 200px;
     height: 150px;
@@ -28,7 +24,7 @@ body {
     font-weight: bold;
     color: black;
     font-size: 25pt;
-    
+
 }
 .categoryDetails {
     font-family: Marmelad;

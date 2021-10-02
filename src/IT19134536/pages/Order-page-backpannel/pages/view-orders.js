@@ -29,8 +29,8 @@ class ViewOrdersBackPanel extends Component {
 
   render() {
     return (
-      <div className="backgroundRowImageCategory">
-        <Row>
+      <div >
+        <Row className="backgroundRowImage">
           <Col sm="4"></Col>
           <Col sm="6">
             <Row >
