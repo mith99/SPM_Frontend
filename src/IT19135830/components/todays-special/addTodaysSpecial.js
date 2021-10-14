@@ -49,6 +49,7 @@ class AddTodaysSpecial extends Component {
 
   onSubmit(e){
     e.preventDefault();
+ 
     let todaySpecial = {
       dishName: this.state.dishName,
       description: this.state.description,
@@ -71,6 +72,36 @@ class AddTodaysSpecial extends Component {
           console.log(error.message);
           alert(error.message);
         })
+ 
+
+    if(this.state.dishName == ""|| this.state.description == "" || this.state.price == 0 || this.state.date == "" || this.state.date == ""|| this.state.image == "") {
+      alert("Please Fill All The Fields");
+
+    }
+    else {
+
+      let todaySpecial = {
+        dishName: this.state.dishName,
+        description: this.state.description,
+        price: this.state.price,
+        date: this.state.date,
+        image: this.state.selectedFile
+      }
+
+      console.log(todaySpecial);
+
+      axios.post('http://localhost:5000/user/add-todays-special', todaySpecial)
+          .then(response => {
+            alert('Data Successfully inserted');
+            window.location = ('/view-todays-special');
+          })
+          .catch(error => {
+            console.log(error.message);
+            alert(error.message);
+          })
+    }
+
+ 
   }
 
 

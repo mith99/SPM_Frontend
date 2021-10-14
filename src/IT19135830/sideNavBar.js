@@ -62,8 +62,13 @@ const Header = () => {
               </MenuItem>
               <br/>
               <SubMenu title="Manage Categories" icon={<FaList/>}  className='titleBackgound'>
+ 
                 <MenuItem className='menuItemFont'><a href='/add-category' style={{color:'black'}}>Add Categories </a></MenuItem>
                 <MenuItem className='menuItemFont'><a href='/category-list' style={{color:'black'}}>View Categories</a></MenuItem>
+ 
+                <MenuItem className='menuItemFont menuItemBackground'><a href='/' style={{color:'black'}}>Add Categories </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Categories</a></MenuItem>
+ 
                </SubMenu>
                <br/>
                <SubMenu title="Manage Menus" icon={<BiFoodMenu/>}  className='titleBackgound'>
@@ -82,7 +87,7 @@ const Header = () => {
                </SubMenu>
                <br/>
                <SubMenu title="Manage Offers" icon={<MdLocalOffer/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Add Offers</a></MenuItem>
+                <MenuItem className='menuItemFont' ><a href='/' style={{color:'black'}}>Add Offers</a></MenuItem>
                 <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Offers</a></MenuItem>
                </SubMenu>
                <br/>
@@ -92,7 +97,9 @@ const Header = () => {
                </SubMenu>
                <br/>
                <MenuItem icon={<HiDocumentReport />} className='titleBackgound'>
+                   <a href='/reports' style={{color:'black'}}>
                     Report Generation
+                   </a>
               </MenuItem>
 
               
