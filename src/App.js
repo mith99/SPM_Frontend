@@ -1,5 +1,7 @@
 import React from "react";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import NavBar from './IT19135830/sideNavBar';
 import logo from './IT19135830/images/logo.png';
 import AddTodaysSpecial from './IT19135830/components/todays-special/addTodaysSpecial'
@@ -26,6 +28,30 @@ function App() {
           <Route path="/edit-dish/:id" component={EditDish}></Route>
           <Route path="/create-email" component ={CreateEmail}></Route>
           <Route path="/view-emails" component ={ViewEmails}></Route>
+
+
+import AddOffer from "./IT19136134/components/offers/add-offer";
+import EditDeleteOffer from "./IT19136134/components/offers/edit-delete-offer";
+import ViewOfferBackPanel from "./IT19136134/components/offers/view-backpanel-offers";
+import DashBoard from "./IT19136134/components/dashBoard/dash-board";
+import Navbar from "./IT19135830/sideNavBar";
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <Router>
+        <Switch>
+          <Route
+            path="/edit-delete-offer/:id"
+            component={EditDeleteOffer}
+          ></Route>
+          <Route
+            path="/view-offer-backpanel"
+            component={ViewOfferBackPanel}
+          ></Route>
+          <Route path="/add-offer" component={AddOffer}></Route>
+          <Route path="/" component={DashBoard}></Route>
 
         </Switch>
         
