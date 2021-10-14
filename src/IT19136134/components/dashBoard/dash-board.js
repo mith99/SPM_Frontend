@@ -4,6 +4,7 @@ import axios from "axios";
 import DashBoardCss from "../../styleSheets/dashBoard.css";
 
 class DashBoard extends Component {
+
   constructor(props) {
     super(props);
 
@@ -43,6 +44,7 @@ class DashBoard extends Component {
       });
   }
 
+
   render() {
     return (
       <div>
@@ -77,7 +79,11 @@ class DashBoard extends Component {
                             color: "#df4759",
                           }}
                         >
+
                           {this.state.canceledCounts}
+
+                          02
+
                         </h1>
                       </div>
                       <p
@@ -110,7 +116,11 @@ class DashBoard extends Component {
                             color: "#467fd0",
                           }}
                         >
+
                           {this.state.pendingCount}
+
+                          03
+
                         </h1>
                       </div>
                       <p
@@ -143,7 +153,11 @@ class DashBoard extends Component {
                             color: "#42ba96",
                           }}
                         >
+
                           {this.state.completedCount}
+
+                          05
+
                         </h1>
                       </div>
                       <p
@@ -177,7 +191,11 @@ class DashBoard extends Component {
                                 color: "#ffc107",
                               }}
                             >
+
                               {this.state.emailSubscriberCount}
+
+                              10
+
                             </h1>
                           </div>
                         </Col>
