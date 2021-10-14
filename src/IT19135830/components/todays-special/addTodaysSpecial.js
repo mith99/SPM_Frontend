@@ -49,6 +49,30 @@ class AddTodaysSpecial extends Component {
 
   onSubmit(e){
     e.preventDefault();
+ 
+    let todaySpecial = {
+      dishName: this.state.dishName,
+      description: this.state.description,
+      price: this.state.price,
+      date: this.state.date,
+      image: this.state.selectedFile
+    }
+
+    console.log(todaySpecial);
+
+    axios.post('http://localhost:5000/user/add-todays-special', todaySpecial)
+        .then(response => {
+
+          alert('Data Successfully inserted')
+
+          alert('Data Successfully inserted');
+          window.location=('/view-todays-special');
+        })
+        .catch(error => {
+          console.log(error.message);
+          alert(error.message);
+        })
+ 
 
     if(this.state.dishName == ""|| this.state.description == "" || this.state.price == 0 || this.state.date == "" || this.state.date == ""|| this.state.image == "") {
       alert("Please Fill All The Fields");
@@ -77,6 +101,7 @@ class AddTodaysSpecial extends Component {
           })
     }
 
+ 
   }
 
 
@@ -84,6 +109,142 @@ class AddTodaysSpecial extends Component {
 
   render() {
     return (
+
+      <div className="backgroundRowImage ">
+        <Row >
+          <Col sm="6" style={{marginLeft:'300px'}}>
+            <div>
+           <h1 className='titleStyle' style={{opacity:'100%'}}>Today's Special</h1>
+           </div>
+           </Col>
+           </Row>
+
+          <br/>
+          <br/>
+
+        <div >
+
+          <Row  >
+            <Col sm = '6' >
+              <Row >
+              <Col sm='2'></Col>
+            <Col sm='10'>
+              <h3 className='inputTitles'style={{marginBottom:'-15px'}}>
+                Dish Name
+              </h3>
+              <br/>
+                <input
+                    className="inputTextBox"
+                    name="dishName"
+                    value={this.state.dishName}
+                    onChange={this.onChange}
+                    required
+                ></input>
+            </Col>
+
+
+          </Row>
+
+
+        <Row >
+          <Col sm='2'></Col>
+          <Col sm='10'>
+              <h3 className='inputTitles'>
+                Description
+              </h3>
+
+              <textarea
+                  className="inputTextBox"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChange}
+                  required
+                  style={{ height:'100px', paddingTop:'1vh'}}
+              ></textarea>
+            </Col>
+          </Row>
+
+        <Row >
+          <Col sm='2'></Col>
+          <Col sm='10'>
+            <h3 className='inputTitles'>
+              Price
+            </h3>
+
+            <input
+                className="inputTextBox"
+                name="Price"
+                type="number"
+                id="price"
+                value={this.state.price}
+                onChange={this.onChange}
+                required
+            ></input>
+          </Col>
+
+
+        </Row>
+
+          <Row >
+            <Col sm='2'></Col>
+            <Col sm='10'>
+              <h3 className='inputTitles'>
+                Date
+              </h3>
+
+              <input
+                  className="inputTextBox"
+                  name="Date"
+                  type='date'
+                  value={this.state.date}
+                  onChange={this.onChange}
+                  required
+              ></input>
+            </Col>
+
+
+          </Row>
+
+          <Row >
+            <Col sm='2'></Col>
+            <Col sm='10'>
+              <h3 className='inputTitles'>
+                Image
+              </h3>
+
+              <input
+                  className="inputTextBox"
+                  type="file"
+                  accept="image/*"
+                  onChange={this.setSelectImageFile}
+                  required
+              ></input>
+            </Col>
+
+
+          </Row>
+            </Col>
+            <Col sm='6'>
+              <img
+                  src={this.state.selectedFile}
+                  alt="item image"
+                  className="imageBox"
+              />
+
+              <button
+                  type="submit"
+                  className="addButton"
+                  onClick={this.onSubmit}
+              > Add </button>
+            </Col>
+
+
+          </Row>
+
+        </div>
+
+        
+      </div>
         <div>
           <Row className="backgroundRowImageOffer">
             <Col sm="2"></Col>

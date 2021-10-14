@@ -1,0 +1,73 @@
+.backgroundRowImage {
+    /* background: url(../Images/restaurant-in-valkenswaard.jpg) no-repeat center; */
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100vh;
+    height: 100vh;
+    margin-right: 0%;
+    margin-left: 0%;
+}
+
+.topic {
+    margin-top: 40pt;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+}
+
+.fontPara {
+    font-family: Merriweather;
+    font-style: italic;
+    font-size: 20pt;
+    color: white;
+}
+
+.inputTextBox {
+    width: 500px;
+    height: 50px;
+    background: #EFEFEF;
+    border-radius: 25px;
+}
+
+.spaceTop {
+    margin-top: 30pt;
+}
+
+.addNewButton {
+    width: 160px;
+    height: 60px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 15pt;
+}
+
+body {
+    background-position: center;
+    background: url(../Images/background.png) no-repeat center;
+    background-attachment: fixed;
+}
+
+.imageBoxNew {
+    
+    width: 400px;
+    height: 400px;
+}
+
+.editnewDeleteButton {
+    width: 160px;
+    height: 60px;
+    background: #47AAE2;
+    border-radius: 45px;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin-right: 100pt;
+}

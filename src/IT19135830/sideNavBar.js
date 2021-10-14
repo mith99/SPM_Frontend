@@ -62,18 +62,23 @@ const Header = () => {
               </MenuItem>
               <br/>
               <SubMenu title="Manage Categories" icon={<FaList/>}  className='titleBackgound'>
+ 
+                <MenuItem className='menuItemFont'><a href='/add-category' style={{color:'black'}}>Add Categories </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/category-list' style={{color:'black'}}>View Categories</a></MenuItem>
+ 
                 <MenuItem className='menuItemFont menuItemBackground'><a href='/' style={{color:'black'}}>Add Categories </a></MenuItem>
                 <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Categories</a></MenuItem>
+ 
                </SubMenu>
                <br/>
                <SubMenu title="Manage Menus" icon={<BiFoodMenu/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Add Menus </a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Menus</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/add-meal' style={{color:'black'}}>Add Menus </a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/meal-list' style={{color:'black'}}>View Menus</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Email Creator" icon={<AiOutlineMail/>}  className='titleBackgound'>
-                <MenuItem className='menuItemFont'><a href='/create-email' style={{color:'black'}}>Create Email</a></MenuItem>
-                <MenuItem className='menuItemFont'><a href='/view-emails' style={{color:'black'}}>View Emails</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>Create Email</a></MenuItem>
+                <MenuItem className='menuItemFont'><a href='/' style={{color:'black'}}>View Emails</a></MenuItem>
                </SubMenu>
                <br/>
                <SubMenu title="Manage Orders" icon={<AiOutlineShopping/>}  className='titleBackgound'>

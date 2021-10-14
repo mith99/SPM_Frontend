@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Card, Modal, Button, Row,Col} from "reactstrap";
+ 
 import '../../css/viewSpecials.css'
+ 
 import axios from "axios";
 
 
@@ -90,6 +92,7 @@ class EditSpecialDish extends Component {
     render() {
         return(
             <div>
+
                 <Row className="backgroundRowImageOffer">
                     <Col sm="2"></Col>
                     <Col sm="8">
@@ -218,6 +221,7 @@ class EditSpecialDish extends Component {
                     </Col>
                 </Row>
 
+ 
             </div>
         )
     }
