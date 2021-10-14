@@ -1,0 +1,26 @@
+.topicviewRep {
+    margin-top: 20pt;
+    font-family: Merriweather;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 45pt;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0%;
+    text-align: right;
+    background-color: rgba(248, 247, 247, 0.329);
+    width: fit-content;
+    margin-left: 80%;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.backgroundRowImageRep {
+    background: url(../images/backgroundImg.png) no-repeat center;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100vh;
+    height: 100vh;
+    margin-right: 0%;
+    margin-left: 0%;
+    padding-bottom: 70%;
+}
