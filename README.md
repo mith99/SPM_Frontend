@@ -1,3 +1,24 @@
+
+2021S2_REG_WE_40
+Viego Palace
+
+Name			Registration No	
+A.L.A.D.C.V. Ambegoda	IT19134536	
+ 
+Wanigasekara S.V.	IT19167992
+	 
+A.R. Kulatunga		IT19136134	
+
+Goonawardena M.V.S.	IT19135830	
+
+
+Project Description
+This is a restaurant management system
+
+Technologies
+MERN Stack
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
